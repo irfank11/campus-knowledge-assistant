@@ -1,5 +1,5 @@
 import { documentApi } from '../api/endpoints'
-import { BookOpen, MessageCircle, Send, Sparkles, ThumbsDown, ThumbsUp } from 'lucide-react'
+import { BookOpen, MessageCircle, Send, ThumbsDown, ThumbsUp } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { chatApi } from '../api/endpoints'
@@ -141,7 +141,7 @@ export default function ChatPage() {
         {!loadingConversation && messages.length === 0 && !sending && (
           <div className="chat-empty">
             <div className="empty-icon">
-              <Sparkles size={24} />
+              <BookOpen size={24} />
             </div>
             <p>Ask about attendance, exams, scholarships, hostel rules, or placements</p>
             <p className="helper-text">Every answer is grounded in official college documents with sources cited.</p>
@@ -159,7 +159,7 @@ export default function ChatPage() {
           <div key={m.id}>
             <div className={`message-row ${m.role === 'USER' ? 'user' : 'assistant'}`}>
               <div className="message-label">
-                {m.role === 'USER' ? <MessageCircle size={12} /> : <Sparkles size={12} />}
+                {m.role === 'USER' ? <MessageCircle size={12} /> : <BookOpen size={12} />}
                 {m.role === 'USER' ? 'You' : 'Assistant'}
               </div>
               <div className="message-bubble">{m.content}</div>
@@ -197,19 +197,7 @@ export default function ChatPage() {
                                 <ul>
                   {sourcesByMessageId[m.id].map((s, i) => (
                     <li key={i}>
-                      <button
-                        onClick={() => openSource(s)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          padding: 0,
-                          color: 'var(--primary)',
-                          cursor: 'pointer',
-                          textDecoration: 'underline',
-                          fontSize: 'inherit',
-                          fontFamily: 'inherit',
-                        }}
-                      >
+                      <button className="source-link" onClick={() => openSource(s)}>
                         {s.document_title}
                         {s.page_number ? ` — Page ${s.page_number}` : ''}
                       </button>
@@ -224,7 +212,7 @@ export default function ChatPage() {
         {sending && (
           <div className="message-row assistant">
             <div className="message-label">
-              <Sparkles size={12} />
+              <BookOpen size={12} />
               Assistant
             </div>
             <div className="message-bubble">

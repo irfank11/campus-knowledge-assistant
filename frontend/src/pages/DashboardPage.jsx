@@ -1,4 +1,4 @@
-import { MessageSquarePlus, Sparkles } from 'lucide-react'
+import { MessageSquarePlus } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { chatApi } from '../api/endpoints'
 import OnboardingTour from '../components/OnboardingTour'
@@ -21,12 +21,6 @@ export default function DashboardPage() {
       <div className="page-body">
         <OnboardingTour />
         <div className="card" style={{ maxWidth: 640 }}>
-          <div style={{
-            width: 44, height: 44, borderRadius: 12, background: 'var(--gradient-brand)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', marginBottom: 16,
-          }}>
-            <Sparkles size={20} />
-          </div>
           <h2 style={{ marginTop: 0, letterSpacing: '-0.02em' }}>Welcome, {user?.name}</h2>
           <p className="helper-text" style={{ fontSize: 14, lineHeight: 1.6 }}>
             Ask questions about attendance rules, exam schedules, scholarships, hostel procedures, placement

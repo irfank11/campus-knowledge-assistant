@@ -1,4 +1,4 @@
-import { Eye, EyeOff, GraduationCap, Lock, Mail, MessageSquareText, ShieldCheck, Sparkles } from 'lucide-react'
+import { Eye, EyeOff, FileText, Lock, Mail, MessageSquareText, ShieldCheck } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../components/Logo'
@@ -42,8 +42,8 @@ export default function LoginPage() {
           </p>
           <div className="auth-hero-features">
             <div className="auth-hero-feature">
-              <span className="feature-icon"><Sparkles size={15} /></span>
-              AI answers grounded in real college documents
+              <span className="feature-icon"><FileText size={15} /></span>
+              Answers drawn from official college documents
             </div>
             <div className="auth-hero-feature">
               <span className="feature-icon"><MessageSquareText size={15} /></span>
@@ -105,7 +105,7 @@ export default function LoginPage() {
             </div>
             {error && <div className="error-text" style={{ marginBottom: 14 }}>{error}</div>}
             <button className="btn btn-primary" style={{ width: '100%' }} disabled={loading}>
-              {loading ? <span className="spinner" /> : <GraduationCap size={16} />}
+              {loading ? <span className="spinner" /> : null}
               {loading ? 'Logging in...' : 'Log in'}
             </button>
           </form>

@@ -1,4 +1,4 @@
-import { BookOpen, MessageSquareText, Sparkles, X } from 'lucide-react'
+import { BookOpen, FileText, MessageSquareText, X } from 'lucide-react'
 import { useState } from 'react'
 
 const STORAGE_KEY = 'onboarding_tour_dismissed'
@@ -10,8 +10,8 @@ const STEPS = [
     text: 'Attendance rules, exam dates, scholarships, hostel procedures, placements — just type your question.',
   },
   {
-    icon: <Sparkles size={18} />,
-    title: 'Answers are grounded, not guessed',
+    icon: <FileText size={18} />,
+    title: 'Answers come from the documents only',
     text: "The assistant only answers from official uploaded documents, and says so clearly when it can't find something.",
   },
   {
@@ -36,16 +36,15 @@ export default function OnboardingTour() {
       className="card"
       style={{
         marginBottom: 20,
-        background: 'var(--gradient-brand)',
-        color: '#fff',
-        border: 'none',
+        borderLeft: '3px solid var(--primary)',
+        borderRadius: 10,
         position: 'relative',
       }}
     >
       <button
         onClick={dismiss}
         className="icon-btn"
-        style={{ position: 'absolute', top: 14, right: 14, color: 'rgba(255,255,255,0.85)' }}
+        style={{ position: 'absolute', top: 12, right: 12 }}
         aria-label="Dismiss"
       >
         <X size={16} />
@@ -58,7 +57,8 @@ export default function OnboardingTour() {
                 width: 32,
                 height: 32,
                 borderRadius: 9,
-                background: 'rgba(255,255,255,0.18)',
+                background: 'var(--surface-hover)',
+                color: 'var(--primary)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -69,7 +69,7 @@ export default function OnboardingTour() {
             </div>
             <div>
               <div style={{ fontWeight: 700, fontSize: 13.5, marginBottom: 3 }}>{step.title}</div>
-              <div style={{ fontSize: 12.5, opacity: 0.92, lineHeight: 1.45 }}>{step.text}</div>
+              <div style={{ fontSize: 12.5, color: 'var(--muted-text)', lineHeight: 1.45 }}>{step.text}</div>
             </div>
           </div>
         ))}

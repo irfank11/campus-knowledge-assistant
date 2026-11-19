@@ -1,4 +1,4 @@
-import { Eye, EyeOff, GraduationCap, Lock, Mail, MessageSquareText, ShieldCheck, Sparkles, User } from 'lucide-react'
+import { Eye, EyeOff, Lock, Mail, MessageSquareText, ShieldCheck, User } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../components/Logo'
@@ -43,7 +43,7 @@ export default function RegisterPage() {
           </p>
           <div className="auth-hero-features">
             <div className="auth-hero-feature">
-              <span className="feature-icon"><Sparkles size={15} /></span>
+              <span className="feature-icon"><User size={15} /></span>
               Free to use for every student
             </div>
             <div className="auth-hero-feature">
@@ -108,7 +108,7 @@ export default function RegisterPage() {
             </div>
             {error && <div className="error-text" style={{ marginBottom: 14 }}>{error}</div>}
             <button className="btn btn-primary" style={{ width: '100%' }} disabled={loading}>
-              {loading ? <span className="spinner" /> : <GraduationCap size={16} />}
+              {loading ? <span className="spinner" /> : null}
               {loading ? 'Creating account...' : 'Register'}
             </button>
           </form>
